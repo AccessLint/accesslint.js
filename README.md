@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/accesslint/monitor.svg)](https://travis-ci.org/accesslint/monitor)
+
 # Accessibility Monitoring for Your Website
 
 AccessLint Monitor will alert you of accessibility errors in your website.
