@@ -20,9 +20,10 @@
   "devDependencies": {
     "accessibility-developer-tools": "~2.7.1-rc.1",
     "browserify": "~11.0.1",
-    "coffeeify": "~1.1.0"
-  },
-  "dependencies": {
-    "coffee-script": "~1.9.3"
+    "coffeeify": "~1.1.0",
+    "coffee-script": "~1.9.3",
+    "request": "~2.61.0",
+    "express": "~4.13.3",
+    "cors": "~2.7.1"
   }
 }
