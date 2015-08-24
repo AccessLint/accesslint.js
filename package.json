@@ -24,6 +24,13 @@
     "coffee-script": "~1.9.3",
     "request": "~2.61.0",
     "express": "~4.13.3",
-    "cors": "~2.7.1"
+    "cors": "~2.7.1",
+    "axe-core": "~1.1.0",
+    "watchify": "~3.3.1",
+    "vinyl-source-stream": "~1.1.0",
+    "gulp-util": "~3.0.6",
+    "lodash": "~3.10.1",
+    "gulp-sourcemaps": "~1.5.2",
+    "vinyl-buffer": "~1.0.0"
   }
 }
