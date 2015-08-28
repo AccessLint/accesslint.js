@@ -1,32 +1,40 @@
-"use strict";
-
-var watchify = require("watchify");
-var browserify = require("browserify");
 var gulp = require("gulp");
-var source = require("vinyl-source-stream");
-var gutil = require("gulp-util");
-var buffer = require("vinyl-buffer");
 var sourcemaps = require("gulp-sourcemaps");
-var assign = require("lodash").assign;
+var source = require("vinyl-source-stream");
+var buffer = require("vinyl-buffer");
+var browserify = require("browserify");
+var watchify = require("watchify");
+var babel = require("babelify");
 
-var customOpts = {
-  entries: ["./src/index.coffee"],
-  debug: true
-};
-var opts = assign({}, watchify.args, customOpts);
-var b = watchify(browserify(opts));
+function compile(watch) {
+  var bundler = watchify(browserify("./src/index.js", { debug: true })
+      .transform(babel));
 
-b.transform("coffeeify");
-gulp.task("js", bundle);
-b.on("update", bundle);
-b.on("log", gutil.log);
+  function rebundle() {
+    bundler.bundle()
+      .on("error", function(err) { console.error(err); this.emit("end"); })
+      .pipe(source("build.js"))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(sourcemaps.write("./"))
+      .pipe(gulp.dest("./build"));
+  }
 
-function bundle() {
-  return b.bundle()
-    .on("error", gutil.log.bind(gutil, "Browserify Error"))
-    .pipe(source("bundle.js"))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./dist"));
+  if (watch) {
+    bundler.on("update", function() {
+      console.log("-> bundling...");
+      rebundle();
+    });
+  }
+
+  rebundle();
 }
+
+function watch() {
+  return compile(true);
+};
+
+gulp.task("build", function() { return compile(); });
+gulp.task("watch", function() { return watch(); });
+
+gulp.task("default", ["watch"]);

@@ -2,7 +2,7 @@
   "name": "accesslint-monitor",
   "version": "0.0.1",
   "description": "Monitor your webpages for accessibility errors.",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/accesslint/monitor.git"
@@ -18,19 +18,18 @@
     "url": "https://github.com/accesslint/monitor/issues"
   },
   "devDependencies": {
-    "accessibility-developer-tools": "~2.7.1-rc.1",
-    "browserify": "~11.0.1",
-    "coffeeify": "~1.1.0",
-    "coffee-script": "~1.9.3",
-    "request": "~2.61.0",
-    "express": "~4.13.3",
-    "cors": "~2.7.1",
     "axe-core": "~1.1.0",
-    "watchify": "~3.3.1",
-    "vinyl-source-stream": "~1.1.0",
-    "gulp-util": "~3.0.6",
-    "lodash": "~3.10.1",
-    "gulp-sourcemaps": "~1.5.2",
-    "vinyl-buffer": "~1.0.0"
+    "babelify": "^6.2.0",
+    "browserify": "^11.0.1",
+    "cors": "~2.7.1",
+    "express": "~4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "request": "~2.61.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.3.1"
   }
 }
