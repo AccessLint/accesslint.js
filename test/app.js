@@ -1,8 +1,13 @@
 var express = require("express");
-var cors = require("cors");
 var app = express();
 
-app.post("/", cors(), function(req, res) {
+app.use(express.static(__dirname + "/public"));
+
+app.get("/", function(req, res) {
+  res.send("index.html");
+});
+
+app.post("/accesslint", function(req, res) {
   res.send("Success!");
 });
 

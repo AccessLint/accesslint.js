@@ -1,5 +1,5 @@
 import request from "request";
 
 export default function (message) {
-  request.post("http://localhost:3000", message)
+  request.post(`${window.location}accesslint`, message)
 }
