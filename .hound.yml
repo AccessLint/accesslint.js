@@ -1,2 +1,2 @@
 javascript:
-  enabled: false
+  config_file: .javascript-style.json

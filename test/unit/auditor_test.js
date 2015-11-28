@@ -11,7 +11,7 @@ import auditor from "../../src/auditor";
 describe("default", () => {
   it("runs axe-core tests", () => {
     let axeSpy = sinon.spy();
-    window.axe = { a11yCheck: axeSpy }
+    window.axe = { a11yCheck: axeSpy };
 
     auditor();
 

@@ -21,7 +21,7 @@ module.exports = function(config) {
       "test/**/*_test.js": ["webpack"],
     },
     webpack: {
-      devtool: 'source-map',
+      devtool: "source-map",
       module: {
         loaders: [
         {
@@ -58,5 +58,5 @@ module.exports = function(config) {
     browsers: ["Chrome"],
     singleRun: false,
     concurrency: Infinity,
-  })
+  });
 }
