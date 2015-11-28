@@ -1,41 +1,66 @@
 var gulp = require("gulp");
-var sourcemaps = require("gulp-sourcemaps");
-var source = require("vinyl-source-stream");
-var buffer = require("vinyl-buffer");
-var browserify = require("browserify");
-var watchify = require("watchify");
-var babel = require("babelify");
+var gutil = require("gulp-util");
+var karma = require("karma").server;
+var path = require("path");
+var webpack = require("webpack");
+var webpackConfig = require("./webpack.config.js");
 
-function compile(watch) {
-  var bundler = watchify(browserify("./src/index.js", { debug: true })
-      .transform(babel));
+var devConfig = Object.create(webpackConfig);
+devConfig.devtool = "sourcemap";
+devConfig.debug = true;
 
-  function rebundle() {
-    bundler.bundle()
-      .on("error", function(err) { console.error(err); this.emit("end"); })
-      .pipe(source("build.js"))
-      .pipe(buffer())
-      .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(sourcemaps.write("./"))
-      .pipe(gulp.dest("./build"))
-      .pipe(gulp.dest("./test/public"));
-  }
+var devCompiler = webpack(devConfig);
 
-  if (watch) {
-    bundler.on("update", function() {
-      console.log("-> bundling...");
-      rebundle();
-    });
-  }
+gulp.task("webpack:build-dev", function(callback) {
+  devCompiler.run(function(err, stats) {
+    if(err) {
+      throw new gutil.PluginError("webpack:build-dev", err);
+    }
 
-  rebundle();
-}
+    gutil.log("[webpack:build-dev]", stats.toString({
+      colors: true
+    }));
 
-function watch() {
-  return compile(true);
-};
+    callback();
+  });
+});
 
-gulp.task("build", function() { return compile(); });
-gulp.task("watch", function() { return watch(); });
+gulp.task("webpack:build", function(callback) {
+  var config = Object.create(webpackConfig);
 
-gulp.task("default", ["watch"]);
+  config.plugins = config.plugins.concat(
+      new webpack.DefinePlugin({
+        "process.env": {
+          "NODE_ENV": JSON.stringify("production")
+        }
+      }),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin()
+      );
+
+  webpack(config, function(err, stats) {
+    if(err) {
+      throw new gutil.PluginError("webpack:build", err);
+    }
+
+    gutil.log("[webpack:build]", stats.toString({
+      colors: true
+    }));
+
+    callback();
+  });
+});
+
+gulp.task("test", function(callback) {
+  karma.start({
+    configFile: path.resolve("karma.conf.js"),
+    singleRun: true
+  }, callback);
+});
+
+gulp.task("build", ["webpack:build"]);
+gulp.task("default", ["webpack:build-dev", "test"]);
+
+gulp.task("build-dev", ["webpack:build-dev"], function() {
+  gulp.watch(["src/**/*"], ["webpack:build-dev"]);
+});

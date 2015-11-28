@@ -1,0 +1,5 @@
+javascript:
+  enabled: false
+jshint:
+  enabled: true
+  config_file: .javascript-style.json
