@@ -1,9 +1,10 @@
 import auditor from "./auditor.js";
 
-const DEFAULT_URL = "https://accesslint-service-staging.herokuapp.com/api/v1/reports";
+(function() {
+  var load = function() {
+    window.removeEventListener("load", load, false);
+    auditor();
+  };
 
-window.AccessLint = {
-  audit({ url = DEFAULT_URL, raiseError = false }) {
-    auditor(url, raiseError);
-  },
-};
+  window.addEventListener("load", load);
+})();

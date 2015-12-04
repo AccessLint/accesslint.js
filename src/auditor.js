@@ -1,8 +1,8 @@
 import { axe } from "axe-core/axe.min.js";
-import logger from "./logger";
+import report from "./reporter";
 
-export default function (url, raiseError) {
+export default function () {
   window.axe.a11yCheck(document, {}, (results) => {
-    logger(results, url, raiseError);
+    report(results);
   });
 }
