@@ -1,6 +1,6 @@
 import request from "browser-request";
 
-const url = "https://accesslint-service-staging.herokuapp.com/api/v1/reports";
+const url = "http://beta.accesslint.com/api/v1/reports";
 
 export default function (message) {
   let violations = message.violations;
