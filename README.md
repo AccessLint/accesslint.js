@@ -19,7 +19,7 @@ that page, AccessLint Monitor track the error for review.
 
 ## Development
 
-AccessLint Monitor uses babel and webpack to transpile and package ES2105
+AccessLint Monitor uses babel and webpack to transpile and package ES2015
 code for inclusion clientside. It uses karma and mocha to run tests.
 
 ### Setup
