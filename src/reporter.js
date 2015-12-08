@@ -1,6 +1,6 @@
 import request from "browser-request";
 
-const url = "http://beta.accesslint.com/api/v1/reports";
+const url = "https://beta.accesslint.com/api/v1/reports";
 
 export default function (message) {
   const violations = message.violations;
