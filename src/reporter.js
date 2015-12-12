@@ -7,9 +7,14 @@ export default function (message) {
 
   if (violations.length > 0) {
     let descriptions = [];
+    let snippets = [];
 
     violations.map((violation) => {
-      descriptions.push(violation.help);
+      violation.nodes.map((node) => {
+        snippets.push(node.html);
+      });
+
+      descriptions.push(violation.help + "\n" + snippets.join("\n"));
     });
 
     request({
