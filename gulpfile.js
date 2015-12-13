@@ -1,3 +1,4 @@
+var awspublish = require("gulp-awspublish");
 var gulp = require("gulp");
 var gutil = require("gulp-util");
 var karma = require("karma").server;
@@ -58,8 +59,22 @@ gulp.task("test", function(callback) {
   }, callback);
 });
 
+gulp.task("publish", function() {
+  var publisher = awspublish.create({
+    "params": {
+      "Bucket": "accesslint"
+    },
+  });
+
+  return gulp.src('./dist/accesslint-0.1.js')
+  .pipe(publisher.publish())
+  .pipe(publisher.cache())
+  .pipe(awspublish.reporter());
+});
+
 gulp.task("build", ["webpack:build"]);
 gulp.task("default", ["webpack:build-dev", "test"]);
+gulp.task("release", ["build", "test", "publish"]);
 
 gulp.task("build-dev", ["webpack:build-dev"], function() {
   gulp.watch(["src/**/*"], ["webpack:build-dev"]);

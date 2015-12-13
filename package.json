@@ -31,6 +31,7 @@
     "chai": "^3.4.1",
     "express": "~4.13.3",
     "gulp": "^3.9.0",
+    "gulp-awspublish": "^3.0.1",
     "json-loader": "^0.5.4",
     "karma": "^0.13.15",
     "karma-babel-preprocessor": "^6.0.1",
