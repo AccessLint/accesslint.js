@@ -12,7 +12,7 @@
     "testing",
     "a11y"
   ],
-  "script": {
+  "scripts": {
     "test": "gulp build-dev && ./node_modules/.bin/karma start --single-run"
   },
   "author": "Cameron Cundiff",
