@@ -12,7 +12,7 @@ want to monitor.
 Include the compiled library through the AccessLint CDN:
 
 ```
-<script src="http://cdn.accesslint.com/accesslint-0.1.js" type="text/javascript">
+<script src="https://cdn.accesslint.com/accesslint-0.1.js" type="text/javascript">
 ```
 
 ## How it works
