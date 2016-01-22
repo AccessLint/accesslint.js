@@ -12,9 +12,6 @@
     "testing",
     "a11y"
   ],
-  "scripts": {
-    "test": "gulp build-dev && ./node_modules/.bin/karma start --single-run"
-  },
   "author": "Cameron Cundiff",
   "license": "MIT",
   "bugs": {

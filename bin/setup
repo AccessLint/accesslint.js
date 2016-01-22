@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-npm install -g webpack gulp-cli
+npm install -g gulp-cli webpack
 npm install

@@ -2,20 +2,30 @@
 
 # Accessibility Monitoring for Your Website
 
-AccessLint Monitor will alert you of accessibility errors in your website.
+AccessLint.js warns you of accessibility errors in your website.
 
 ## Usage
 
-Install AccessLint Monitor by including the javascript in at the end of any page
-you want to monitor.
+Install AccessLint.js by including the javascript in at the end of any page you
+want to monitor.
+
+Include the compiled library through the AccessLint CDN:
+
+```
+<script src="http://cdn.accesslint.com/accesslint-0.1.js" type="text/javascript">
+```
 
 ## How it works
 
-AccessLint Monitor is similar to client side performance measurement tools like
-NewRelic or Google Analytics in the way it is included and run on your website.
 When a visitor arrives at a page that has the script installed, an audit will
 run in the background automatically. If there are any accessibility issues on
-that page, AccessLint Monitor track the error for review.
+that page, AccessLint.js will raise the error and track it for review.
+
+AccessLint.js runs assertions from the
+[aXe-core](https://github.com/dequelabs/axe-core) accessibility library wherever
+you include the script. It the raises JavaScript errors in the page and posts
+results to the [AccessLint service](https://beta.accesslint.com), where you can
+add reporting and notification integrations.
 
 ## Development
 
@@ -26,22 +36,23 @@ code for inclusion clientside. It uses karma and mocha to run tests.
 
     $ bin/setup
 
+### Testing
+
+    $ gulp
+
 ### Building
 
 #### Development
 
-    $ gulp build-dev
+    $ gulp build-dev # build and watch for changes
 
 #### Production
 
     $ gulp build
 
-### Testing
+### Deploying
 
-From the application root: `$ karma start`
+AccessLint.js is hosted on Amazon S3 behind Cloudfront. You must have AWS
+credentials with the AccessLint account to publish an updated version.
 
-#### Smoke testing
-
-1. Start the node test app `$ DEBUG=express:* node test/integration/app.js`.
-1. Visit `localhost:3000`.
-1. Open the network panel and review the response from the host.
+    $ gulp publish
