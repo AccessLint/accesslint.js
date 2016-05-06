@@ -1,6 +1,6 @@
 import request from "browser-request";
 
-const url = "https://beta.accesslint.com/api/v1/reports";
+const url = "/access_lint/errors"
 
 export default function (message) {
   const violations = message.violations;
@@ -11,10 +11,5 @@ export default function (message) {
       url: url,
       json: message,
     }, function() {});
-
-    console.error(
-      `AccessLint - ${violations.length} accessibility violations:`,
-      violations
-    );
   }
 }
