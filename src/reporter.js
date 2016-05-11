@@ -12,6 +12,7 @@ export default function (message) {
       nodes: violation.nodes.map(function(n) {
         return {
           target: n.target,
+          html: n.html,
           impact: n.impact
         };
       }),
@@ -31,4 +32,6 @@ export default function (message) {
       }
     }, function() {});
   }
+
+  console.log("AccessLint warnings: ", violations);
 }
