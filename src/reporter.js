@@ -9,11 +9,11 @@ export default function (message) {
       help: violation.help,
       helpUrl: violation.helpUrl,
       id: violation.id,
+      impact: violation.impact,
       nodes: violation.nodes.map(function(n) {
         return {
           target: n.target,
-          html: n.html,
-          impact: n.impact
+          html: n.html
         };
       }),
       tags: violation.tags
