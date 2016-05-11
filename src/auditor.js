@@ -2,7 +2,13 @@ import { axe } from "axe-core/axe.min.js";
 import report from "./reporter";
 
 export default function () {
-  window.axe.a11yCheck(document, (results) => {
+  const options = {
+    "rules": {
+      "color-contrast": { enabled: false },
+    }
+  };
+
+  window.axe.a11yCheck(document, options, (results) => {
     report(results);
   });
 }

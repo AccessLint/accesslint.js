@@ -66,7 +66,7 @@ gulp.task("publish", function() {
     },
   });
 
-  return gulp.src('./dist/accesslint-0.1.js')
+  return gulp.src('./dist/accesslint.js')
   .pipe(publisher.publish())
   .pipe(publisher.cache())
   .pipe(awspublish.reporter());

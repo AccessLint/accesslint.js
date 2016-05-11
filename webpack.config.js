@@ -6,7 +6,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "accesslint-0.1.js"
+    filename: "accesslint.js"
   },
   plugins: [],
   module: {
