@@ -1,6 +1,6 @@
 import request from "browser-request";
 
-const url = "/access_lint/errors"
+const url = "/access_lint/errors";
 
 export default function (message) {
   var violations = message.violations.map(function(violation) {

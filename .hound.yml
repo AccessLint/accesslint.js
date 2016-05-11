@@ -1,5 +1,5 @@
 javascript:
   enabled: false
-jshint:
+eslint:
   enabled: true
-  config_file: .javascript-style.json
+  config_file: .eslintrc
