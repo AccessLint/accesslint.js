@@ -2,30 +2,31 @@
 
 # Accessibility Monitoring for Your Website
 
-AccessLint.js warns you of accessibility errors in your website.
+accesslint.js warns you of accessibility errors in your website.
 
 ## Usage
 
-Install AccessLint.js by including the javascript in at the end of any page you
-want to monitor.
-
-Include the compiled library through the AccessLint CDN:
+Download the compiled library from the releases page or build it yourself. Then,
+include the javascript in you page:
 
 ```
-<script src="https://cdn.accesslint.com/accesslint-0.1.js" type="text/javascript">
+<script src="accesslint.js" type="text/javascript">
 ```
 
 ## How it works
 
 When a visitor arrives at a page that has the script installed, an audit will
 run in the background automatically. If there are any accessibility issues on
-that page, AccessLint.js will raise the error and track it for review.
+that page, accesslint.js will log the error to the console, and post to a server
+endpoint that you can optionally configure.
 
-AccessLint.js runs assertions from the
+accesslint.js runs assertions from the
 [aXe-core](https://github.com/dequelabs/axe-core) accessibility library wherever
-you include the script. It the raises JavaScript errors in the page and posts
-results to the [AccessLint service](https://beta.accesslint.com), where you can
-add reporting and notification integrations.
+you include the script. It the logs the violations the browser's Javascript
+console. It also POSTs the results to `/access_lint/errors` in your app. If you
+set up and endpoint with that path, you can log the errors on the server too.
+See [AccessLint::Rails](https://github.com/thoughtbot/access_lint-rails) for a
+Rails implementation of server side logging of accessibility errors.
 
 ## Development
 
@@ -49,10 +50,3 @@ code for inclusion clientside. It uses karma and mocha to run tests.
 #### Production
 
     $ gulp build
-
-### Deploying
-
-AccessLint.js is hosted on Amazon S3 behind Cloudfront. You must have AWS
-credentials with the AccessLint account to publish an updated version.
-
-    $ gulp publish
