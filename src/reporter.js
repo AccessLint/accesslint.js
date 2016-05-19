@@ -2,21 +2,15 @@ import request from "browser-request";
 
 const url = "/access_lint/errors";
 
-export default function (message) {
+export default function(message) {
   var violations = message.violations.map(function(violation) {
     return {
       description: violation.description,
       help: violation.help,
-      helpUrl: violation.helpUrl,
-      id: violation.id,
       impact: violation.impact,
       nodes: violation.nodes.map(function(n) {
-        return {
-          target: n.target,
-          html: n.html
-        };
+        return document.querySelectorAll(n.target);
       }),
-      tags: violation.tags
     };
   });
 
@@ -31,7 +25,7 @@ export default function (message) {
         }
       }
     }, function() {});
-  }
 
-  console.log("AccessLint warnings: ", violations);
+    console.warn(violations);
+  }
 }

@@ -20,6 +20,9 @@ run in the background automatically. If there are any accessibility issues on
 that page, accesslint.js will log the error to the console, and post to a server
 endpoint that you can optionally configure.
 
+The audit will run once on page load, and **again for each DOM change event.**
+This feature gives you feedback on new content introduced via AJAX, for example.
+
 accesslint.js runs assertions from the
 [aXe-core](https://github.com/dequelabs/axe-core) accessibility library wherever
 you include the script. It the logs the violations the browser's Javascript
