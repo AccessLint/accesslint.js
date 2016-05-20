@@ -5,6 +5,7 @@ module.exports = function(config) {
       "mocha",
     ],
     files: [
+      "test/integration/index.html",
       "test/*_test.js",
       "test/**/*_test.js",
     ],
@@ -56,5 +57,8 @@ module.exports = function(config) {
     browsers: ["PhantomJS"],
     singleRun: false,
     concurrency: Infinity,
+    client: {
+      captureConsole: false
+    }
   });
 };

@@ -11,8 +11,4 @@ app.get("/", function(req, res) {
   res.send("index.html");
 });
 
-app.post("/accesslint", function(req, res) {
-  res.send(req.body);
-});
-
 app.listen(3000);

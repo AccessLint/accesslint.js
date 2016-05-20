@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/accesslint/monitor.svg)](https://travis-ci.org/accesslint/monitor)
+[![Build Status](https://travis-ci.org/accesslint/accesslint.js.svg)](https://travis-ci.org/accesslint/accesslint.js)
 
 # Accessibility Monitoring for Your Website
 
