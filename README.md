@@ -31,6 +31,9 @@ set up and endpoint with that path, you can log the errors on the server too.
 See [AccessLint::Rails](https://github.com/thoughtbot/access_lint-rails) for a
 Rails implementation of server side logging of accessibility errors.
 
+![animated screencapture of accesslint warnings to the console](https://cloud.githubusercontent.com/assets/108163/15450990/693ce7e4-1f7c-11e6-8778-6a6aced77679.gif)
+
+
 ## Development
 
 AccessLint Monitor uses babel and webpack to transpile and package ES2015
