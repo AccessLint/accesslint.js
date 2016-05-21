@@ -6,8 +6,8 @@ accesslint.js warns you of accessibility errors in your website.
 
 ## Usage
 
-Download the compiled library from the releases page or build it yourself. Then,
-include the javascript in you page:
+Download the [latest release](https://github.com/accesslint/accesslint.js/releases/latest) and
+include the javascript in your page:
 
 ```
 <script src="accesslint.js" type="text/javascript">
