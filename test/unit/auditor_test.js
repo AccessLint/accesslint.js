@@ -8,6 +8,7 @@ let expect = chai.expect;
 
 import auditor from "../../src/auditor";
 import report from "../../src/reporter";
+import Logger from "../../src/logger";
 
 describe("auditor", () => {
   it("runs axe-core tests", () => {
@@ -30,10 +31,11 @@ describe("report", () => {
         nodes: []
       }]
     };
-    sinon.spy(console, "warn");
+    let logger = new Logger();
+    sinon.spy(logger, "warn");
 
-    report(results);
+    report(results, logger);
 
-    expect(console.warn).to.have.been.called.once;
+    expect(logger.warn).to.have.been.called.once;
   });
 });

@@ -2,14 +2,15 @@ import request from "browser-request";
 
 const url = "/access_lint/errors";
 
-export default function(message) {
+export default function(message, logger) {
+
   var violations = message.violations.map(function(violation) {
     return {
       description: violation.description,
       help: violation.help,
       impact: violation.impact,
       nodes: violation.nodes.map(function(n) {
-        return document.querySelectorAll(n.target);
+        return document.querySelector(n.target);
       }),
     };
   });
@@ -26,6 +27,8 @@ export default function(message) {
       }
     }, function() {});
 
-    console.warn(violations);
+    violations.forEach(function(violation) {
+      logger.warn(violation);
+    });
   }
 }
