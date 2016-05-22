@@ -1,4 +1,4 @@
-# accesslint.js [![Build Status](https://travis-ci.org/accesslint/accesslint.js.svg)](https://travis-ci.org/accesslint/accesslint.js)
+# accesslint.js
 
 Accessibility warnings for dynamic web content
 
