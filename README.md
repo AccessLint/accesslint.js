@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/accesslint/accesslint.js.svg)](https://travis-ci.org/accesslint/accesslint.js)
 
-# Accessibility Warnings for Your Website
+# accesslint.js
 
-accesslint.js warns you of accessibility errors in your website.
+Accessibility warnings for dynamic web content
 
 ## Usage
 
