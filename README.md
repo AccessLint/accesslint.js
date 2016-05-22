@@ -12,13 +12,12 @@ and include the javascript in your page at the end of the `<body>` tag.
 <script src="accesslint.js" type="text/javascript">
 ```
 
-Open the page and watch your browser's JavaScript console for warnings.
+Then, run your phantomjs browser tests to get accessibility warning logs,
+or open your browser and get automatic warnings in the JavaScript console.
 
-![Firefox JavaScript console with accessibility warnings](https://cloud.githubusercontent.com/assets/108163/15451467/c36dd858-1f91-11e6-9c5f-7a945c7b38f7.png)
+### Phantomjs tests
 
-Or run your phantomjs browser tests and handle the logged output.
-
-Example with Capybara and Poltergeist logging to stdout:
+With RSpec, Capybara, and Poltergeist:
 
 ```
 % bundle exec rspec spec/features
@@ -33,6 +32,10 @@ Finished in 2.18 seconds (files took 1.11 seconds to load)
 
 Randomized with seed 35702
 ```
+
+### Browser Console
+
+![Firefox JavaScript console with accessibility warnings](https://cloud.githubusercontent.com/assets/108163/15451467/c36dd858-1f91-11e6-9c5f-7a945c7b38f7.png)
 
 ## How it works
 
