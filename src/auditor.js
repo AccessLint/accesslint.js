@@ -10,5 +10,6 @@ export default function(target, logger) {
 
   window.axe.a11yCheck(target.parentNode, options, (results) => {
     report(results, logger);
+    window.AccessLint.results = results;
   });
 }
