@@ -16,6 +16,8 @@ and include the javascript in your page at the end of the `<body>` tag.
 
 Open the page and watch your browser's JavaScript console for warnings.
 
+![Firefox JavaScript console with accessibility warnings](https://cloud.githubusercontent.com/assets/108163/15451467/c36dd858-1f91-11e6-9c5f-7a945c7b38f7.png)
+
 ## How it works
 
 accesslint.js runs assertions from the
