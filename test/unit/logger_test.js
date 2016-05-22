@@ -10,10 +10,11 @@ describe("warn", () => {
   it("logs to console.warn", () => {
     let logger = new Logger();
     sinon.spy(console, "warn");
-    logger.warn("example");
-    logger.warn("example");
 
-    expect(console.warn).to.be.have.been.calledWith("example");
+    logger.warn({ help: "example", nodes: []});
+    logger.warn({ help: "example", nodes: []});
+
+    expect(console.warn).to.be.have.been.calledWith("example", []);
     expect(console.warn).to.be.have.been.calledOnce;
   });
 });

@@ -6,38 +6,26 @@ accesslint.js warns you of accessibility errors in your website.
 
 ## Usage
 
-Download the [latest release](https://github.com/accesslint/accesslint.js/releases/latest) and
-include the javascript in your page:
+Download the
+[latest release](https://github.com/accesslint/accesslint.js/releases/latest)
+and include the javascript in your page at the end of the `<body>` tag.
 
 ```
 <script src="accesslint.js" type="text/javascript">
 ```
 
+Open the page and watch your browser's JavaScript console for warnings.
+
 ## How it works
-
-When a visitor arrives at a page that has the script installed, an audit will
-run in the background automatically. If there are any accessibility issues on
-that page, accesslint.js will log the error to the console, and post to a server
-endpoint that you can optionally configure.
-
-The audit will run once on page load, and **again for each DOM change event.**
-This feature gives you feedback on new content introduced via AJAX, for example.
 
 accesslint.js runs assertions from the
 [aXe-core](https://github.com/dequelabs/axe-core) accessibility library wherever
-you include the script. It the logs the violations the browser's Javascript
-console. It also POSTs the results to `/access_lint/errors` in your app. If you
-set up and endpoint with that path, you can log the errors on the server too.
-See [AccessLint::Rails](https://github.com/thoughtbot/access_lint-rails) for a
-Rails implementation of server side logging of accessibility errors.
+you include the script once on page load, and again for each DOM change event.
 
-![animated screencapture of accesslint warnings to the console](https://cloud.githubusercontent.com/assets/108163/15450990/693ce7e4-1f7c-11e6-8778-6a6aced77679.gif)
-
+This feature gives you feedback on new content introduced via AJAX, for example,
+or updates to a single page app.
 
 ## Development
-
-AccessLint Monitor uses babel and webpack to transpile and package ES2015
-code for inclusion clientside. It uses karma and mocha to run tests.
 
 ### Setup
 

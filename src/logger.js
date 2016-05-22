@@ -1,24 +1,20 @@
+import _ from "underscore";
+
 export default class Logger {
   constructor() {
     this.logged = []
   }
 
   warn(violation) {
-    if(!this.exists(violation)) {
-      console.warn(violation);
+    if(!this.seen(violation)) {
+      window.console.warn(violation.help, violation.nodes);
       this.logged.push(violation);
     }
   }
 
-  exists(violation) {
-    let exists = false;
-
-    this.logged.forEach(function(entry) {
-      if (JSON.stringify(entry) === JSON.stringify(violation)) {
-        exists = true;
-      }
+  seen(violation) {
+    return _.any(this.logged, function(message) {
+      return _.isEqual(message, violation)
     });
-
-    return exists;
   }
 }
