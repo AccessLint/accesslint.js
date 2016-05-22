@@ -16,6 +16,24 @@ Open the page and watch your browser's JavaScript console for warnings.
 
 ![Firefox JavaScript console with accessibility warnings](https://cloud.githubusercontent.com/assets/108163/15451467/c36dd858-1f91-11e6-9c5f-7a945c7b38f7.png)
 
+Or run your phantomjs browser tests and handle the logged output.
+
+Example with Capybara and Poltergeist logging to stdout:
+
+```
+% bundle exec rspec spec/features
+
+Randomized with seed 35702
+<html> element must have a valid lang attribute [object HTMLHtmlElement]
+Form elements must have labels [object HTMLInputElement]
+.
+
+Finished in 2.18 seconds (files took 1.11 seconds to load)
+1 example, 0 failures
+
+Randomized with seed 35702
+```
+
 ## How it works
 
 accesslint.js runs assertions from the
