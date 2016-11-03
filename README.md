@@ -1,6 +1,6 @@
 # accesslint.js
 
-Accessibility warnings for dynamic web content
+Accessibility warnings for dynamic web content. Join the conversation at <slack.accesslint.com>.
 
 ## Usage
 
