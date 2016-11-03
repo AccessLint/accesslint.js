@@ -4,11 +4,6 @@ import Logger from "./logger";
 (function() {
   var logger = new Logger();
 
-  var load = function() {
-    window.removeEventListener("load", load, false);
-    auditor(document, logger);
-  };
-
   var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       auditor(mutation.target, logger);
@@ -22,6 +17,11 @@ import Logger from "./logger";
     subtree: true
   };
 
+  var load = function() {
+    window.removeEventListener("load", load, false);
+    auditor(document, logger);
+    observer.observe(document, config);
+  };
+
   window.addEventListener("load", load);
-  observer.observe(document, config);
 })();
