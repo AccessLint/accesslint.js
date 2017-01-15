@@ -1,4 +1,5 @@
 var path = require("path");
+var PACKAGE = require("./package.json");
 
 module.exports = {
   entry: [
@@ -6,7 +7,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "accesslint.js"
+    filename: PACKAGE.name + "-" + PACKAGE.version + ".js"
   },
   plugins: [],
   module: {
