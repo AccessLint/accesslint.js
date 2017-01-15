@@ -62,11 +62,11 @@ gulp.task("test", function(callback) {
 gulp.task("publish", function() {
   var publisher = awspublish.create({
     "params": {
-      "Bucket": "accesslint"
+      "Bucket": "accesslint-js"
     },
   });
 
-  return gulp.src('./dist/accesslint.js')
+  return gulp.src('./dist/accesslint-*.js')
   .pipe(publisher.publish())
   .pipe(publisher.cache())
   .pipe(awspublish.reporter());
