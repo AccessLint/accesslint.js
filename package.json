@@ -18,7 +18,7 @@
     "url": "https://github.com/accesslint/accesslint.js/issues"
   },
   "devDependencies": {
-    "axe-core": "~1.1.1",
+    "axe-core": "^2.1.7",
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-polyfill": "^6.2.0",

@@ -13,7 +13,7 @@ import Logger from "../../src/logger";
 describe("auditor", () => {
   it("runs axe-core tests", () => {
     let axe = sinon.spy();
-    window.axe = { a11yCheck: axe };
+    window.axe = { run: axe };
 
     auditor(document);
 

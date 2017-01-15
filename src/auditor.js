@@ -8,7 +8,7 @@ export default function(target, logger) {
     }
   };
 
-  window.axe.a11yCheck(target.parentNode, options, (results) => {
+  window.axe.run(target.parentNode, options, (results) => {
     report(results, logger);
   });
 }
