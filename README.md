@@ -4,10 +4,10 @@ Accessibility warnings for dynamic web content. Join the conversation on [Slack]
 
 ## Usage
 
-Include the javascript in your page at the end of the `<body>` tag.
+Include the javascript in your page before `</body>`.
 
 ```
-<script src="https://cdn.accesslint.com/accesslint-1.1.2.js" type="text/javascript"></script>
+<script src="https://cdn.accesslint.com/accesslint-1.1.2.js"></script>
 ```
 
 Then, run your phantomjs browser tests to get accessibility warning logs,
