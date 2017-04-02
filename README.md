@@ -1,6 +1,6 @@
 # accesslint.js
 
-Accessibility warnings for dynamic web content. Join the conversation on [Slack](http://slack.accesslint.com).
+Accessibility warnings for dynamic web content. Join the conversation on [Slack](http://slack.accesslint.com) or sign up for the [hosted service](https://accesslint.com).
 
 ## Usage
 
