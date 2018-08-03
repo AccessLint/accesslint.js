@@ -1,3 +1,7 @@
+# Looking for Accessibility CI?
+
+Use the [AccessLint App](https://app.accesslint.com) for GitHub.
+
 # accesslint.js
 
 Accessibility warnings for dynamic web content. Join the conversation on [Slack](http://slack.accesslint.com).
