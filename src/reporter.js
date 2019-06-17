@@ -1,3 +1,7 @@
+import request from "browser-request";
+
+const url = "/access_lint/errors";
+
 export default function(message, logger) {
   var violations = message.violations.map(function(violation) {
     return {
@@ -10,7 +14,20 @@ export default function(message, logger) {
     };
   });
 
-  violations.forEach(function(violation) {
-    logger.warn(violation);
-  });
+  if (violations.length > 0) {
+    request({
+      method: "POST",
+      url: url,
+      json: {
+        accesslint: {
+          violations: violations,
+          url: window.location.pathname
+        }
+      }
+    }, function() {});
+
+    violations.forEach(function(violation) {
+      logger.warn(violation);
+    });
+  }
 }
