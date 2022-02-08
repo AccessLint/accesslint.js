@@ -1,10 +1,10 @@
 {
-  "name": "accesslint",
+  "name": "a11y-logger",
   "version": "1.1.2",
   "description": "Keep accessibility errors in check.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/accesslint/accesslint.js.git"
+    "url": "https://github.com/accesslint/a11y-logger.js.git"
   },
   "keywords": [
     "accessibility",
@@ -15,7 +15,7 @@
   "author": "Cameron Cundiff",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/accesslint/accesslint.js/issues"
+    "url": "https://github.com/accesslint/a11y-logger.js/issues"
   },
   "scripts": {
     "build": "rimraf dist && tsc && rollup -c rollup.config.js"
