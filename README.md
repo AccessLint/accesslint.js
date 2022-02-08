@@ -2,7 +2,7 @@
 
 Use the [AccessLint App](https://app.accesslint.com) for GitHub.
 
-# a11y-explorer.js
+# a11y-logger.js
 
 Accessibility warnings for dynamic web content.
 
