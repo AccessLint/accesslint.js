@@ -1,4 +1,3 @@
 #!/usr/bin/env sh
 
-npm install -g gulp-cli webpack
-npm install
+yarn check || yarn
