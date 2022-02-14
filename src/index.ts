@@ -1,29 +1,32 @@
-import { Result, source } from "axe-core";
+import { run, Result } from "axe-core";
 
 async function assess() {
-  const { axe } = window as unknown as any;
-  const { violations }: { violations: Result[] } = await axe.run();
+  try {
+    const { violations }: { violations: Result[] } = await run(document);
 
-  for (const violation of violations) {
-    const { description, help, impact } = violation;
+    for (const violation of violations) {
+      const { description, help, id, impact } = violation;
 
-    const nodes = violation.nodes.map((node) => {
-      return document.querySelector(
-        node.target as unknown as keyof HTMLElementTagNameMap
-      );
-    });
+      const nodes = violation.nodes.map((node) => {
+        return document.querySelector(
+          node.target as unknown as keyof HTMLElementTagNameMap
+        );
+      });
 
-    console.warn(`[A11yLogger] ${description}`, {
-      help,
-      impact,
-      nodes,
-    });
+      console.warn(`[A11yLogger]: ${id}`, {
+        help,
+        description,
+        impact,
+        nodes,
+      });
+    }
+  } catch (error) {
+    console.error(`[A11yLogger]: ${error}`);
   }
 }
 
-function run() {
+function perform() {
   window.requestIdleCallback(() => {
-    window.eval(source);
     assess();
   });
 
@@ -34,4 +37,4 @@ function run() {
   });
 }
 
-run();
+perform();
