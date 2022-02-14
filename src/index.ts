@@ -13,12 +13,21 @@ async function assess() {
         );
       });
 
-      console.warn(`[A11yLogger]: ${id}`, {
-        help,
-        description,
-        impact,
-        nodes,
-      });
+      const message = [
+        `[A11yLogger]: ${id}`,
+        {
+          help,
+          description,
+          impact,
+          nodes,
+        },
+      ];
+
+      if (impact === "critical") {
+        console.warn(...message);
+      } else {
+        console.log(...message);
+      }
     }
   } catch (error) {
     console.error(`[A11yLogger]: ${error}`);
