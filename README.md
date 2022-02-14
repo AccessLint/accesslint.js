@@ -10,6 +10,10 @@ Accessibility warnings for dynamic web content.
 
 Include the javascript in your page before `</body>`.
 
+```js
+<script defer src="https://cdn.accesslint.com/a11y-logger-0.1.0.js"></script>
+```
+
 Then, run your acceptance tests to get accessibility warning logs,
 or open your browser and get automatic warnings in the JavaScript console.
 
