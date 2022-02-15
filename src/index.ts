@@ -1,32 +1,42 @@
-import { run, Result } from "axe-core";
+import { run, Result, ImpactValue } from "axe-core";
 
 async function assess() {
   try {
-    const { violations }: { violations: Result[] } = await run(document);
+    const { violations }: { violations: Result[] } = await run(document, {
+      elementRef: true,
+    });
 
     for (const violation of violations) {
-      const { description, help, id, impact } = violation;
+      const { description, id, nodes } = violation;
 
-      const nodes = violation.nodes.map((node) => {
-        return document.querySelector(
-          node.target as unknown as keyof HTMLElementTagNameMap
-        );
-      });
+      const impactedNodes = new Map<ImpactValue, HTMLElement[]>();
 
-      const message = [
-        `[A11yLogger]: ${id}`,
-        {
-          help,
-          description,
-          impact,
-          nodes,
-        },
-      ];
+      for (const node of nodes) {
+        const { impact, element } = node;
 
-      if (impact === "critical") {
-        console.warn(...message);
-      } else {
-        console.log(...message);
+        const existingNodes = impactedNodes.get(impact!) || [];
+        if (element) {
+          impactedNodes.set(impact!, [...existingNodes, element]);
+        }
+      }
+
+      for (const impact of impactedNodes.keys()) {
+        const results = impactedNodes.get(impact);
+        const message = [
+          `[A11yLogger]: ${id}`,
+          {
+            description,
+            results,
+            impact,
+            engine: "axe-core",
+          },
+        ];
+
+        if (impact === "critical") {
+          console.warn(...message);
+        } else {
+          console.log(...message);
+        }
       }
     }
   } catch (error) {
