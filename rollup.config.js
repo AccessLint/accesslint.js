@@ -9,12 +9,13 @@ export default merge(baseConfig, {
   input: './out-tsc/src/index.js',
   output: {
     format: 'iife',
+    entryFileNames: 'bundle.js',
     globals: { crypto: 'crypto' }
   },
   plugins: [
     nodeResolve(),
     commonjs({
       include: 'node_modules/**'
-    })
-  ]
+    }),
+  ],
 });
