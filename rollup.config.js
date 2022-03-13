@@ -9,7 +9,7 @@ export default merge(baseConfig, {
   input: './out-tsc/src/index.js',
   output: {
     format: 'iife',
-    entryFileNames: 'bundle.js',
+    entryFileNames: 'a11y-logger.js',
     globals: { crypto: 'crypto' }
   },
   plugins: [

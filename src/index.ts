@@ -44,16 +44,10 @@ async function assess() {
   }
 }
 
-function perform() {
-  window.requestIdleCallback(() => {
+function init() {
+  window.addEventListener("accesslint:run", (event) => {
     assess();
-  });
-
-  window.addEventListener("click", () => {
-    window.requestIdleCallback(() => {
-      assess();
-    });
   });
 }
 
-perform();
+init();
