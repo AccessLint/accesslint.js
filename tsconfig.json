@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "lib": ["DOM", "es2017"],
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "out-tsc",
+    "rootDir": "./"
+  }
+}
